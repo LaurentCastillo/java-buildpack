@@ -121,7 +121,9 @@ module JavaBuildpack
 
         def attempt(http, request, cached_file)
           downloaded = false
-
+	  
+		  request['Accept-Encoding'] = "Identity"
+	  
           http.request request do |response|
             @logger.debug { "Status: #{response.code}" }
 
