@@ -115,6 +115,10 @@ module JavaBuildpack
 
           if user_provided
             user_provided_value = YAML.load(user_provided)
+			
+			logger.debug "from env: #{user_provided_value.inspect}"
+			logger.debug "from file: #{configuration.inspect}"
+			
             if user_provided_value.is_a?(Hash)
               configuration = do_merge(configuration, user_provided_value, should_log)
             elsif user_provided_value.is_a?(Array)
