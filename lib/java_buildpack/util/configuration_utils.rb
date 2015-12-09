@@ -114,6 +114,7 @@ module JavaBuildpack
           logger.debug { "Configuration from #{file}: #{configuration}" } if should_log
 
           if user_provided
+			logger.debug "raw user provided: #{user_provided.inspect}"
             user_provided_value = YAML.load(user_provided)
 			
 			logger.debug "from env: #{user_provided_value.inspect}"
